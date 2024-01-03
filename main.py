@@ -6,6 +6,16 @@ offsets = [0x2A8, 0x90, 0x10, 0x50, 0x60, 0x50, 0x2C0]
 
 pm = Pymem('1v1_LOL.exe')
 
+code = """
+
+import ctypes
+ctypes.windll.user32.MessageBoxW(0, "Successfully attached to process!", "Made By samfr._", 0)
+
+"""
+
+pm.inject_python_interpreter()
+pm.inject_python_shellcode(code)
+
 gameModule = module_from_name(pm.process_handle, 'mono-2.0-bdwgc.dll').lpBaseOfDll
 
 
