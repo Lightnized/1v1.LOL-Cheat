@@ -2,7 +2,8 @@ from pymem import *
 from pymem.process import *
 import time
 
-offsets = [0x2A8, 0x80, 0x10, 0x58, 0x60, 0x50, 0x2C0]
+offsets = [0x2A8, 0x80, 0x10, 0x58, 0x60, 0x50, 0x2C0] # Offsets for inf ammo.
+offsets2 = [0x2A8, 0x88, 0x10, 0x68, 0x60, 0x88, 0xC0] # Offsets for inf health.
 
 pm = Pymem('1v1_LOL.exe')
 
@@ -34,7 +35,9 @@ if __name__ == '__main__':
 
             pm.write_int(GetPointer(gameModule, offsets), 1000)
 
-            time.sleep(0.1)
+            pm.write_int(GetPointer(gameModule, offsets2), 10000)
+
+            time.sleep(0.001)
 
         except:
 
