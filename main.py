@@ -2,7 +2,7 @@ from pymem import *
 from pymem.process import *
 import time
 
-offsets = [0x2A8, 0x90, 0x10, 0x50, 0x60, 0x50, 0x2C0]
+offsets = [0x2A8, 0x78, 0x10, 0x378, 0xA0, 0x50, 0x2C0]
 
 pm = Pymem('1v1_LOL.exe')
 
@@ -32,7 +32,7 @@ if __name__ == '__main__':
 
         try:
 
-            pm.write_int(GetPointer(gameModule, offsets), 100)
+            pm.write_int(GetPointer(gameModule, offsets), 1000)
 
             time.sleep(0.1)
 
